@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Kalkulator raty kredytu</title>
+</h:head>
+<h:body>
+
+	<h1>Kalkulator raty kredytu podejście 2</h1>
+
+	<h:form id="bla">
+  		Podaj kwotę kredytu: <h:inputText value="#{karkuratorBB.x}" />
+		<br />
+  		Podaj ilość miesięcy: <h:inputText value="#{karkuratorBB.y}" />
+		<br />
+		Podaj oprocentowanie: <h:inputText value="#{karkuratorBB.z}" />
+		<br />
+		<h:messages id="msg" />
+
+		<h:commandButton value="Oblicz" action="#{karkuratorBB.calc()}"/>
+		<br />
+		<h:commandButton value="Oblicz (AJAX)" action="#{karkuratorBB.calc_AJAX()}">
+			<f:ajax execute="@form" render="msg" />
+		</h:commandButton>
+		<br />
+	</h:form>
+
+</h:body>
+</html>
