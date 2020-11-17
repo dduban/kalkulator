@@ -63,12 +63,11 @@ public class KarkuratorBB {
 			return true;
 		} catch (Exception e) {
 			ctx.addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "WystÄ…piÅ‚ bÅ‚Ä…d, sprawdz parametry", null));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Wyst¹pi³ b³¹d, sprawdz parametry", null));
 			return false;
 		}
 	}
 
-	// Go to "showresult" if ok
 	public String calc() {
 		if (oblicz()) {
 			return "showresult";
@@ -76,10 +75,9 @@ public class KarkuratorBB {
 		return null;
 	}
 
-	// Put result in messages on AJAX call
 	public String calc_AJAX() {
 		if (oblicz()) {
-			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "MiesiÄ™czna rata wynosi: " + result, null));
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Miesiêczna rata wynosi: " + result, null));
 		}
 		return null;
 	}

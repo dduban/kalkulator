@@ -5,50 +5,51 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<title>Kalkulator raty kredytu</title>
-</h:head>
-<h:body>
-	
-	<p:panel header="Kalkulator raty kredytu podejście 3">
 
-	<h:form id="bla">
+<ui:composition template="/templates/page.xhtml">
 	
-		<h:panelGrid id="grid" columns="3" cellpadding="5">
-		
-			<p:outputLabel for="kwota" value="Kwota kredytu:" />
-	        <p:inputText id="kwota" required="true" value="#{karkuratorBB.x}" requiredMessage="Brak kwoty" validatorMessage="Kwota musi wynosić minimum 100zł" converterMessage="Kwota musi być liczbą" >
-	        	<f:validateDoubleRange minimum="100"/>
-	        </p:inputText>
-	        <p:message for="kwota" />
-	        
-	        
-	        <p:outputLabel for="miesiace" value="Ilość miesięcy:" />
-	        <p:inputText id="miesiace" required="true" value="#{karkuratorBB.y}" requiredMessage="Brak miesięcy" validatorMessage="Miesiące muszą wynosić minimum 1">
-	        	<f:validateDoubleRange minimum="1"/>
-	        </p:inputText>
-	        <p:message for="miesiace" />
-	        
-	        <p:outputLabel for="oproc" value="Wysokość oprocentowania:" />
-	        <p:inputText id="oproc" required="true" value="#{karkuratorBB.z}" requiredMessage="Brak oprocentowania" validatorMessage="Oprocentowanie nie może być wyższe niż 100% ani niższe niż 0%">
-	        	<f:validateDoubleRange minimum="0"/>
-	        	<f:validateDoubleRange maximum="100"/>
-	        </p:inputText>
-	        <p:message for="oproc" />
-	        
-	        
-			<br />
-			<p:commandButton value="Oblicz" action="#{karkuratorBB.calc()}" update="@form"/>
+	<ui:define name="content">
+	
+		<p:panel header="Kalkulator raty kredytu podejście 4">
+	
+			<h:form id="bla">
 			
-			<p:commandButton value="Oblicz (AJAX)" action="#{karkuratorBB.calc_AJAX()}" update="msg" />
+				<h:panelGrid id="grid" columns="3" cellpadding="5">
 				
-			<br />
-			<p:messages id="msg" />
-			
-		</h:panelGrid>
-	</h:form>
-	
-	</p:panel>
+					<p:outputLabel for="kwota" value="Kwota kredytu:" />
+			        <p:inputText id="kwota" required="true" value="#{karkuratorBB.x}" requiredMessage="Brak kwoty" validatorMessage="Kwota musi wynosić minimum 100zł" converterMessage="Kwota musi być liczbą" >
+			        	<f:validateDoubleRange minimum="100"/>
+			        </p:inputText>
+			        <p:message for="kwota" />
+			        
+			        
+			        <p:outputLabel for="miesiace" value="Ilość miesięcy:" />
+			        <p:inputText id="miesiace" required="true" value="#{karkuratorBB.y}" requiredMessage="Brak miesięcy" validatorMessage="Miesiące muszą wynosić minimum 1">
+			        	<f:validateDoubleRange minimum="1"/>
+			        </p:inputText>
+			        <p:message for="miesiace" />
+			        
+			        <p:outputLabel for="oproc" value="Wysokość oprocentowania:" />
+			        <p:inputText id="oproc" required="true" value="#{karkuratorBB.z}" requiredMessage="Brak oprocentowania" validatorMessage="Oprocentowanie nie może być wyższe niż 100% ani niższe niż 0%">
+			        	<f:validateDoubleRange minimum="0"/>
+			        	<f:validateDoubleRange maximum="100"/>
+			        </p:inputText>
+			        <p:message for="oproc" />
+			        
+			        
+					<br />
+					<p:commandButton value="Oblicz" action="#{karkuratorBB.calc()}" update="@form"/>
+					
+					<p:commandButton value="Oblicz (AJAX)" action="#{karkuratorBB.calc_AJAX()}" update="msg" />
+						
+					<br />
+					<p:messages id="msg" />
+					
+				</h:panelGrid>
+			</h:form>
+		
+		</p:panel>
+	</ui:define>
 
-</h:body>
+</ui:composition>
 </html>
